@@ -2,6 +2,7 @@ package nova.game.gfx;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
+import java.io.FileInputStream;
 import java.io.IOException;
 
 public class SpriteSheet {
@@ -12,9 +13,10 @@ public class SpriteSheet {
     public int[]pixels;
     public SpriteSheet(String path)
     {
+        this.path=path;
         BufferedImage image = null;
         try {
-            image = ImageIO.read(SpriteSheet.class.getResourceAsStream(path));
+            image = ImageIO.read(new FileInputStream(path));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -23,7 +25,7 @@ public class SpriteSheet {
         {
         return;
         }
-    this.path=path;
+
         this.width = image.getWidth();
         this.height = image.getHeight();
 
@@ -35,9 +37,6 @@ public class SpriteSheet {
             pixels[i]=(pixels[i]&0xff)/64;
         }
 
-        for (int i = 0; i < 8 ; i++) {
-            System.out.println(pixels[i]);
-        }
 
     }
 }

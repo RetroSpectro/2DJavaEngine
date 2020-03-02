@@ -27,6 +27,12 @@
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
   </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\on_de\IdeaProjects\2DNovaGameEngine\res" />
+      <recent name="C:\Users\on_de\IdeaProjects\2DNovaGameEngine" />
+    </key>
+  </component>
   <component name="RunDashboard">
     <option name="ruleStates">
       <list>
@@ -70,7 +76,7 @@
       <option name="presentableId" value="Default" />
       <updated>1583129096038</updated>
       <workItem from="1583129102190" duration="10713000" />
-      <workItem from="1583174096877" duration="601000" />
+      <workItem from="1583174096877" duration="9980000" />
     </task>
     <servers />
   </component>
