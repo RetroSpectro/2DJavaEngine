@@ -1,6 +1,7 @@
 package nova.game;
 
 import nova.game.gfx.Colors;
+import nova.game.gfx.Font;
 import nova.game.gfx.Screen;
 import nova.game.gfx.SpriteSheet;
 
@@ -25,7 +26,7 @@ public class Game extends Canvas implements Runnable {
     private BufferedImage image = new BufferedImage(WIDTH, HEIGHT, BufferedImage.TYPE_INT_RGB);
     private int[] pixels = ((DataBufferInt) image.getRaster().getDataBuffer()).getData();
 
-    private int[] colors = new int[6 * 6 * 6];
+    private int[] colors = new int[256];
 
 
     private Screen screen;
@@ -143,18 +144,22 @@ public class Game extends Canvas implements Runnable {
         }
 
 
-
         for (int i = 0; i < 32; i++) {
             for (int j = 0; j < 32; j++) {
-                screen.render(j << 3, i << 3, 0, Colors.get(555, 505, 050, 005));
+                screen.render(j << 3, i << 3, 0, Colors.get(550, 550, 550, 550), false, false);
             }
         }
+//
+//        Font.render("Hello World! 0157",screen,0,0,Colors.get(000,-1,-1,555));
 
-        for (int i = 0; i < screen.height; i++) {
-            for (int j = 0; j < screen.width; j++) {
-int colorCode = screen.pixels[j+i*screen.width];
-if(colorCode<255)
-    pixels[j+i*WIDTH] = colors[colorCode];
+        String msg = "This is my game!";
+        Font.render(msg,screen,screen.xOffset+screen.width/2-(msg.length()*4),screen.yOffset+screen.height/2,Colors.get(000,-1,-1,555));
+
+        for (int y = 0; y < screen.height; y++) {
+            for (int x = 0; x < screen.width; x++) {
+                int colorCode = screen.pixels[x + y * screen.width];
+                if (colorCode < 255)
+                    pixels[x + y * WIDTH] = colors[colorCode];
             }
         }
 
